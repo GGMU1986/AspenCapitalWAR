@@ -1,5 +1,6 @@
 class Api::PlayersController < ApplicationController
   
+  # update endpoint to increment lifetime wins for the winning player
   def update
     @player = Player.find_by(id: params[:id])
     @player.lifetime_wins += 1
@@ -7,6 +8,7 @@ class Api::PlayersController < ApplicationController
     render :info
   end
 
+  # white listing the appropriate parameters to be send to backend as a precaution
   def player_params
     params.require(:player).permit(:name, :lifetime_wins)
   end
