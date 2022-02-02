@@ -185,3 +185,30 @@ Processing by Api::GameController#new as JSON
 Completed 200 OK in 360420ms (Views: 9.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/api/players" for ::1 at 2022-02-02 11:29:33 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (12.2ms)
+Completed 200 OK in 23ms (Views: 13.5ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 11:30:16 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.4ms)
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 11:31:26 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.4ms)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.4ms)
+
+
