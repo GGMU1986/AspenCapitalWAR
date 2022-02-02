@@ -436,3 +436,492 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 235ms (Views: 232.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2022-02-02 12:51:44 -0500
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 774ms (Views: 772.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 12:57:45 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (2.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (19.4ms)
+Completed 200 OK in 30ms (Views: 12.7ms | ActiveRecord: 14.3ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 12:58:21 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.4ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.3ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 12:59:49 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.2ms)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 13:00:17 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.4ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 13:05:33 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 228ms (Views: 226.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 13:07:17 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/george/Desktop/ACWarGame/app/assets/config
+  /Users/george/Desktop/ACWarGame/app/assets/images
+  /Users/george/Desktop/ACWarGame/app/assets/javascripts
+  /Users/george/Desktop/ACWarGame/app/assets/stylesheets
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.6/lib/assets/compiled
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.6/app/assets/javascripts
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.6/lib/assets/compiled
+  /Users/george/Desktop/ACWarGame/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__534311538075544648_70113192098120'
+
+Started POST "/__better_errors/9c4a847a2fbbd900/variables" for ::1 at 2022-02-02 13:07:17 -0500
+Started GET "/" for ::1 at 2022-02-02 13:13:39 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/george/Desktop/ACWarGame/app/assets/config
+  /Users/george/Desktop/ACWarGame/app/assets/images
+  /Users/george/Desktop/ACWarGame/app/assets/javascripts
+  /Users/george/Desktop/ACWarGame/app/assets/stylesheets
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.6/lib/assets/compiled
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.6/app/assets/javascripts
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.6/lib/assets/compiled
+  /Users/george/Desktop/ACWarGame/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__534311538075544648_70113593251620'
+
+Started POST "/__better_errors/51c471e43e2bc4f4/variables" for ::1 at 2022-02-02 13:13:39 -0500
+Started GET "/" for ::1 at 2022-02-02 13:13:40 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/george/Desktop/ACWarGame/app/assets/config
+  /Users/george/Desktop/ACWarGame/app/assets/images
+  /Users/george/Desktop/ACWarGame/app/assets/javascripts
+  /Users/george/Desktop/ACWarGame/app/assets/stylesheets
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.6/lib/assets/compiled
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.6/app/assets/javascripts
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.6/lib/assets/compiled
+  /Users/george/Desktop/ACWarGame/node_modules:
+  app/views/layouts/application.html.erb:9:in `_app_views_layouts_application_html_erb__534311538075544648_70113319732900'
+
+Started POST "/__better_errors/88f1bac8385036f4/variables" for ::1 at 2022-02-02 13:13:41 -0500
+Started GET "/api/game/new" for ::1 at 2022-02-02 15:54:18 -0500
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.4ms)
+Completed 200 OK in 46379ms (Views: 30.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 15:55:43 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.8ms)
+Completed 200 OK in 7462ms (Views: 12.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 15:58:32 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.8ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (11.9ms)
+Completed 200 OK in 23ms (Views: 12.9ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:04:26 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 186ms (ActiveRecord: 0.0ms)
+
+
+
+Sprockets::FileNotFound - couldn't find file 'jquery' with type 'application/javascript'
+Checked in these paths: 
+  /Users/george/Desktop/ACWarGame/app/assets/config
+  /Users/george/Desktop/ACWarGame/app/assets/images
+  /Users/george/Desktop/ACWarGame/app/assets/javascripts
+  /Users/george/Desktop/ACWarGame/app/assets/stylesheets
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/coffee-rails-4.2.2/lib/assets/javascripts
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actioncable-5.2.6/lib/assets/compiled
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activestorage-5.2.6/app/assets/javascripts
+  /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/actionview-5.2.6/lib/assets/compiled
+  /Users/george/Desktop/ACWarGame/node_modules:
+  app/views/layouts/application.html.erb:8:in `_app_views_layouts_application_html_erb__4124420427118201363_70335810077500'
+
+Started POST "/__better_errors/127b6e2f776e810a/variables" for ::1 at 2022-02-02 16:04:26 -0500
+Started GET "/" for ::1 at 2022-02-02 16:06:42 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 738ms (Views: 735.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:08:14 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 953ms (Views: 951.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:08:15 -0500
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 102ms (Views: 60.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:11:10 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:11:10 -0500
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 85ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:12:16 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 20ms (Views: 17.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:12:17 -0500
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 97ms (Views: 60.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:12:32 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:12:32 -0500
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 83ms (Views: 53.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:13:37 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 537ms (Views: 535.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:13:38 -0500
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 69ms (Views: 42.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:13:52 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:13:52 -0500
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 88ms (Views: 55.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:14:19 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 22.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:14:19 -0500
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 80ms (Views: 48.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:15:18 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 290ms (Views: 288.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:15:18 -0500
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 78ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:15:56 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 270ms (Views: 267.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:15:56 -0500
+Processing by StaticPagesController#root as */*
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 74ms (Views: 45.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:19:25 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 280ms (Views: 278.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 16:19:25 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (12.3ms)
+Completed 200 OK in 23ms (Views: 13.0ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:22:42 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 276ms (Views: 273.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 16:22:43 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.3ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:51:37 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 261ms (Views: 259.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:52:00 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 239ms (Views: 237.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 16:52:00 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.5ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:52:29 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 237ms (Views: 235.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 16:52:30 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.0ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:53:30 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 254ms (Views: 251.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 16:53:30 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.5ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:53:52 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 237ms (Views: 235.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 16:53:52 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (19.1ms)
+Completed 500 Internal Server Error in 25ms (ActiveRecord: 0.3ms)
+
+
+
+NoMethodError - undefined method `lifetimeWins' for #<Player id: 1, name: "Player 1", lifetime_wins: 0>
+Did you mean?  lifetime_wins
+               lifetime_wins?
+               lifetime_wins=:
+  app/views/api/players/index.json.jbuilder:3:in `block (2 levels) in _app_views_api_players_index_json_jbuilder___2678232435264135877_70236971969300'
+  app/views/api/players/index.json.jbuilder:2:in `block in _app_views_api_players_index_json_jbuilder___2678232435264135877_70236971969300'
+  app/views/api/players/index.json.jbuilder:1:in `_app_views_api_players_index_json_jbuilder___2678232435264135877_70236971969300'
+  app/controllers/api/players_controller.rb:6:in `index'
+
+Started GET "/" for ::1 at 2022-02-02 16:53:57 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 16:53:57 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (8.1ms)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.2ms)
+
+
+
+NoMethodError - undefined method `lifetimeWins' for #<Player id: 1, name: "Player 1", lifetime_wins: 0>
+Did you mean?  lifetime_wins
+               lifetime_wins?
+               lifetime_wins=:
+  app/views/api/players/index.json.jbuilder:3:in `block (2 levels) in _app_views_api_players_index_json_jbuilder___2678232435264135877_70237273129060'
+  app/views/api/players/index.json.jbuilder:2:in `block in _app_views_api_players_index_json_jbuilder___2678232435264135877_70237273129060'
+  app/views/api/players/index.json.jbuilder:1:in `_app_views_api_players_index_json_jbuilder___2678232435264135877_70237273129060'
+  app/controllers/api/players_controller.rb:6:in `index'
+
+Started GET "/" for ::1 at 2022-02-02 16:54:27 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 21ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 16:54:27 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.1ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:56:10 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 273ms (Views: 270.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 16:56:10 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.1ms)
+Completed 200 OK in 7ms (Views: 7.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 16:59:29 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 253ms (Views: 250.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-02 16:59:29 -0500
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.3ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.1ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.3ms)
+
+

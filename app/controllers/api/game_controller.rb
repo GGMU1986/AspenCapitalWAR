@@ -1,7 +1,7 @@
 class Api::GameController < ApplicationController
 
   def new
-    debugger
+    #debugger
     suits = [ 'heart', 'diamond', 'spade', 'club' ]
     ranks = [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 ]
     @deck = []
@@ -12,10 +12,9 @@ class Api::GameController < ApplicationController
         @deck << [ rank, suit ]
       end
     end
-    debugger
+    #debugger
     #shuffle the deck in place 
     @deck.shuffle!
-    debugger
     render :cards
   end
 

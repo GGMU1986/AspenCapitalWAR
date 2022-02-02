@@ -1,8 +1,11 @@
 import React from 'react';
+import LifeTimeWins from './lifetime_wins';
+import Game from './game';
 
 const Root = () => (
   <div>
-    HELLO
+    <Game />
+    <LifeTimeWins />
   </div>
 );
 
