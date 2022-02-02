@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Player.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('players')
+
+player1 = Player.create!(name: "Player 1");
+player2 = Player.create!(name: "Player 2");

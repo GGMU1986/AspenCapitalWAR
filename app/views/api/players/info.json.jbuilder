@@ -1,1 +1,1 @@
-json.extract! @player, :name, :lifetime_wins
+json.extract! @player, :id, :name, :lifetime_wins

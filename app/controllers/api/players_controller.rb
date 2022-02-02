@@ -1,5 +1,6 @@
 class Api::PlayersController < ApplicationController
   
+  # fetch both players with their name and lifetime wins
   def index
     @players = Player.all
     render :index
@@ -7,9 +8,11 @@ class Api::PlayersController < ApplicationController
   
   # update endpoint to increment lifetime wins for the winning player
   def update
+    
     @player = Player.find_by(id: params[:id])
     @player.lifetime_wins += 1
-    @player.update
+    @player.update(player_params)
+
     render :info
   end
 
