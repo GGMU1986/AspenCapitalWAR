@@ -42,13 +42,34 @@ var Game = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(Game);
 
-  function Game() {
+  function Game(props) {
+    var _this;
+
     _classCallCheck(this, Game);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      player1Hand: [],
+      player2Hand: []
+    };
+    return _this;
   }
 
   _createClass(Game, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      fetch('api/game/new').then(function (res) {
+        return res.json();
+      }).then(function (deck) {
+        _this2.setState({
+          player1Hand: deck.slice(0, 26),
+          player2Hand: deck.slice(26)
+        });
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "GAME COMPONENT");

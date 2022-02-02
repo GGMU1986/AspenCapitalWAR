@@ -925,3 +925,218 @@ Processing by Api::PlayersController#index as JSON
 Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for ::1 at 2022-02-02 17:04:17 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 247ms (Views: 245.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 17:04:17 -0500
+Started GET "/api/players" for ::1 at 2022-02-02 17:04:17 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.7ms)
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.7ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (2.0ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:04:52 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 237ms (Views: 235.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 17:04:52 -0500
+Started GET "/api/players" for ::1 at 2022-02-02 17:04:52 -0500
+Processing by Api::GameController#new as JSON
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (1.5ms)
+Completed 200 OK in 15ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mPlayer Load (7.2ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (8.2ms)
+Completed 200 OK in 15ms (Views: 7.2ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:05:03 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 243ms (Views: 240.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 17:05:04 -0500
+Started GET "/api/players" for ::1 at 2022-02-02 17:05:04 -0500
+Processing by Api::GameController#new as JSON
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.4ms)
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+Completed 200 OK in 13ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+  Rendered api/players/index.json.jbuilder (1.7ms)
+Completed 200 OK in 12ms (Views: 11.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:05:42 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 235ms (Views: 232.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 17:05:43 -0500
+Started GET "/api/players" for ::1 at 2022-02-02 17:05:43 -0500
+Processing by Api::GameController#new as JSON
+Processing by Api::PlayersController#index as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.6ms)
+  Rendering api/players/index.json.jbuilder
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.8ms)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:10:28 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 255ms (Views: 252.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:11:02 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:11:46 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 19ms (Views: 16.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:11:48 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:12:39 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:16:11 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 16.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:16:31 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 42ms (Views: 39.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:16:49 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 16.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:16:50 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:17:19 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 16.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:17:20 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:18:05 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 241ms (Views: 239.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 17:18:06 -0500
+Started GET "/api/players" for ::1 at 2022-02-02 17:18:06 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.5ms)
+Completed 200 OK in 7ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Processing by Api::PlayersController#index as JSON
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.5ms)
+Completed 200 OK in 8ms (Views: 6.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2022-02-02 17:18:31 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 236ms (Views: 233.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 17:18:31 -0500
+Started GET "/api/players" for ::1 at 2022-02-02 17:18:31 -0500
+Processing by Api::GameController#new as JSON
+Processing by Api::PlayersController#index as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.6ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.0ms)
+
+
+  Rendering api/players/index.json.jbuilder
+  [1m[36mPlayer Load (11.0ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (12.3ms)
+Completed 200 OK in 26ms (Views: 14.6ms | ActiveRecord: 11.0ms)
+
+
