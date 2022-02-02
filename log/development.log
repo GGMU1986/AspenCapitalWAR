@@ -47,3 +47,141 @@ Migrating to CreatePlayers (20220202142400)
   [1m[36mPlayer Create (16.1ms)[0m  [1m[32mINSERT INTO "players" ("name") VALUES ($1) RETURNING "id"[0m  [["name", "Player 2"]]
   [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:02:50 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/george/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.6/lib/active_record/log_subscriber.rb:98
+Processing by Api::GameController#new as JSON
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+
+ActionView::MissingTemplate - Missing template api/game/cards, application/cards with {:locale=>[:en], :formats=>[:json], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/george/Desktop/ACWarGame/app/views":
+  app/controllers/api/game_controller.rb:15:in `new'
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:04:39 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (5.1ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `map' for 2:Integer
+Did you mean?  tap:
+  app/views/api/game/cards.json.jbuilder:2:in `block in _app_views_api_game_cards_json_jbuilder__937712291680287214_70325978785160'
+  app/views/api/game/cards.json.jbuilder:1:in `_app_views_api_game_cards_json_jbuilder__937712291680287214_70325978785160'
+  app/controllers/api/game_controller.rb:15:in `new'
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:04:55 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (7.1ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.0ms)
+
+
+
+TypeError - 2 is not a symbol nor a string:
+  app/views/api/game/cards.json.jbuilder:3:in `block (2 levels) in _app_views_api_game_cards_json_jbuilder__937712291680287214_70325436147460'
+  app/views/api/game/cards.json.jbuilder:2:in `block in _app_views_api_game_cards_json_jbuilder__937712291680287214_70325436147460'
+  app/views/api/game/cards.json.jbuilder:1:in `_app_views_api_game_cards_json_jbuilder__937712291680287214_70325436147460'
+  app/controllers/api/game_controller.rb:15:in `new'
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:05:23 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (3.5ms)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms)
+
+
+
+TypeError - 2 is not a symbol nor a string:
+  app/views/api/game/cards.json.jbuilder:3:in `block (2 levels) in _app_views_api_game_cards_json_jbuilder__937712291680287214_70325978243280'
+  app/views/api/game/cards.json.jbuilder:2:in `block in _app_views_api_game_cards_json_jbuilder__937712291680287214_70325978243280'
+  app/views/api/game/cards.json.jbuilder:1:in `_app_views_api_game_cards_json_jbuilder__937712291680287214_70325978243280'
+  app/controllers/api/game_controller.rb:15:in `new'
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:05:54 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (4.9ms)
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `c' for [2, "heart"]:Array:
+  app/views/api/game/cards.json.jbuilder:3:in `block (2 levels) in _app_views_api_game_cards_json_jbuilder__937712291680287214_70325300664900'
+  app/views/api/game/cards.json.jbuilder:2:in `block in _app_views_api_game_cards_json_jbuilder__937712291680287214_70325300664900'
+  app/views/api/game/cards.json.jbuilder:1:in `_app_views_api_game_cards_json_jbuilder__937712291680287214_70325300664900'
+  app/controllers/api/game_controller.rb:15:in `new'
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:06:08 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (3.9ms)
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+
+NoMethodError - undefined method `c' for :card:Symbol:
+  app/views/api/game/cards.json.jbuilder:3:in `block (2 levels) in _app_views_api_game_cards_json_jbuilder__937712291680287214_70325436872180'
+  app/views/api/game/cards.json.jbuilder:2:in `block in _app_views_api_game_cards_json_jbuilder__937712291680287214_70325436872180'
+  app/views/api/game/cards.json.jbuilder:1:in `_app_views_api_game_cards_json_jbuilder__937712291680287214_70325436872180'
+  app/controllers/api/game_controller.rb:15:in `new'
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:10:55 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.6ms)
+Completed 200 OK in 9ms (Views: 8.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:14:12 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.6ms)
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:14:15 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.5ms)
+Completed 200 OK in 8ms (Views: 8.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:14:51 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.4ms)
+Completed 200 OK in 8ms (Views: 7.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:14:53 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.3ms)
+Completed 200 OK in 11ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:15:19 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.3ms)
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:17:43 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.3ms)
+Completed 200 OK in 8ms (Views: 8.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/game/new" for ::1 at 2022-02-02 11:18:55 -0500
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.3ms)
+Completed 200 OK in 360420ms (Views: 9.5ms | ActiveRecord: 0.0ms)
+
+
