@@ -24,14 +24,19 @@ class LifeTimeWins extends React.Component{
 
     return (
       <div className="lifetime-wins-container">
-        {
-          players.map(player => <PlayerItem 
-                                  key={player.id}
-                                  player={player}
-                                />
-            
-                      )
-        }
+        <div>
+          LIFETIME WINS
+        </div>
+        <div>
+          {
+            players.map(player => <PlayerItem 
+                                    key={player.id}
+                                    player={player}
+                                  />
+              
+                        )
+          }
+        </div>
       </div>
     )
   }

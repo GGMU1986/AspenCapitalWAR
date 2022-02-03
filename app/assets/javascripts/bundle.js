@@ -50,10 +50,14 @@ var Game = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       player1Hand: [],
-      player2Hand: []
-    };
+      player2Hand: [],
+      gameOver: true
+    }; // this.playWar = this.playWar.bind(this);
+
+    _this.handleGame = _this.handleGame.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // fetch the shuffled deck from BE and split it btw two players
+
 
   _createClass(Game, [{
     key: "componentDidMount",
@@ -70,9 +74,57 @@ var Game = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "handleGame",
+    value: function handleGame(e) {
+      this.setState({
+        gameOver: false
+      });
+    } // playWar(){
+    //   let card1;
+    //   let card2;
+    //   while (this.state.player1Hand.length && 
+    //     this.state.player2Hand.length){
+    //     card1 = this.state.player1Hand.shift()[0]
+    //     card2 = this.state.player2Hand.shift()[0]
+    //     if (card1 < card2){
+    //       const stateCopy = this.state.player2Hand
+    //       stateCopy.push(card1, card2)
+    //       this.setState({
+    //         player2Hand: stateCopy
+    //       })
+    //     } else if (card2 < card1){
+    //       const stateCopy = this.state.player1Hand
+    //       stateCopy.push(card1, card2)
+    //       this.setState({
+    //         player1Hand: stateCopy
+    //       })
+    //     } else {
+    //       // this.tieCardValue()
+    //     }
+    //   }
+    //   if (card1 && card2){
+    //     return (
+    //       <div>
+    //         <div>
+    //           {card1}
+    //         </div>
+    //         <div>
+    //           {card2}
+    //         </div>
+    //       </div>
+    //     )
+    //   } else {
+    //     return null
+    //   }
+    // }
+
+  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "GAME COMPONENT");
+      // console.log(this.state.gameOver)
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+        onClick: this.handleGame
+      }, "Play"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "gameOver: ", "".concat(this.state.gameOver)));
     }
   }]);
 
@@ -156,12 +208,12 @@ var LifeTimeWins = /*#__PURE__*/function (_React$Component) {
       var players = Object.values(this.state.players);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "lifetime-wins-container"
-      }, players.map(function (player) {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "LIFETIME WINS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, players.map(function (player) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_player_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: player.id,
           player: player
         });
-      }));
+      })));
     }
   }]);
 
