@@ -5,77 +5,154 @@ class Game extends React.Component{
     super(props)
 
     this.state = {
-      player1Hand: [],
-      player2Hand: [],
-      gameOver: true
+      winner: ''
     }
-    // this.playWar = this.playWar.bind(this);
-    this.handleGame = this.handleGame.bind(this);
-  }
+    
+    this.gameOver = false;
+    this.winnerId = null;
+    this.player1Hand = [];
+    this.player2Hand = [];
 
+    this.playGame = this.playGame.bind(this);
+    this.playWar = this.playWar.bind(this);
+  }
+   
   // fetch the shuffled deck from BE and split it btw two players
   componentDidMount(){
     fetch('api/game/new')
       .then(res => res.json())
       .then(deck => {
-        this.setState({
-          player1Hand: deck.slice(0,26),
-          player2Hand: deck.slice(26)
-        })
-      })
+        this.player1Hand = deck.slice(0,26)
+        this.player2Hand = deck.slice(26)
+      }) 
   }
 
-  handleGame(e){
-    this.setState({ gameOver: false })
+  playGame(){
+    //debugger
+    while(!this.gameOver){
+      //debugger
+      const card1 = this.player1Hand.shift();
+      const card2 = this.player2Hand.shift();
+      //debugger
+      if (card1[0] < card2[0]){
+        //debugger
+        this.player2Hand.push(card1, card2)
+        if (!this.player1Hand.length) {
+          this.setState({ 
+            winner: 'Player 2',
+          })
+          this.winnerId = 2
+          this.gameOver = true
+        }
+      } else if (card2[0] < card1[0]){
+        //debugger
+        this.player1Hand.push(card1, card2)
+        if (!this.player2Hand.length) {
+          this.setState({ 
+            winner: 'Player 1',
+          })
+          this.winnerId = 1
+          this.gameOver = true
+        }
+      } else {
+        //debugger
+        this.playWar(card1, card2)
+      }
+    }
+
+    // gameOver is true, now updating BE with new winner
+    // debugger
+    fetch(`/api/players/${this.winnerId}`, {
+      method: 'PATCH'
+    })
   }
+    
+  playWar(card1, card2){
 
-  // playWar(){
-  //   let card1;
-  //   let card2;
-  //   while (this.state.player1Hand.length && 
-  //     this.state.player2Hand.length){
-  //     card1 = this.state.player1Hand.shift()[0]
-  //     card2 = this.state.player2Hand.shift()[0]
+    let tieCardValue = true
+    let tieArray = [card1, card2];
 
-  //     if (card1 < card2){
-  //       const stateCopy = this.state.player2Hand
-  //       stateCopy.push(card1, card2)
-  //       this.setState({
-  //         player2Hand: stateCopy
-  //       })
-  //     } else if (card2 < card1){
-  //       const stateCopy = this.state.player1Hand
-  //       stateCopy.push(card1, card2)
-  //       this.setState({
-  //         player1Hand: stateCopy
-  //       })
-  //     } else {
-  //       // this.tieCardValue()
-  //     }
-  //   }
-  //   if (card1 && card2){
-  //     return (
-  //       <div>
-  //         <div>
-  //           {card1}
-  //         </div>
-  //         <div>
-  //           {card2}
-  //         </div>
-  //       </div>
-  //     )
-  //   } else {
-  //     return null
-  //   }
-  // }
+    while(tieCardValue){
+      tieCardValue = false
+        //debugger
+        if(this.player1Hand.length < 4){
+          this.setState({ 
+            winner: 'Player 2',
+          })
+          this.winnerId = 2 
+          this.gameOver = true
+          return
+        } 
+        if (this.player2Hand.length < 4){
+          this.setState({ 
+            winner: 'Player 1',
+          })
+          this.winnerId = 1 
+          this.gameOver = true
+          return
+        }
+
+        //debugger
+        for(let i = 0; i < 3; i++){
+          tieArray.push(
+            this.player1Hand.shift(),
+            this.player2Hand.shift()
+          )
+        }
+        //debugger
+        let newCard1 = this.player1Hand.shift();
+        let newCard2 = this.player2Hand.shift();
+        //debugger
+        if (newCard1[0] < newCard2[0]){
+          this.player2Hand = [...this.player2Hand, ...tieArray, newCard1, newCard2]
+          //debugger
+          if (!this.player1Hand.length) {
+            this.setState({ 
+              winner: 'Player 2'
+            })
+            this.winnerId = 2
+            this.gameOver = true
+          }
+          return 
+        } else if (newCard2[0] < newCard1[0]){
+          this.player1Hand = [ ...this.player1Hand, ...tieArray, newCard1, newCard2]
+          //debugger
+          if (!this.player2Hand.length) {
+            this.setState({ 
+              winner: 'Player 1',
+            })
+            this.winnerId = 1
+            this.gameOver = true
+          }
+          return
+        } else {
+          //debugger
+          tieCardValue = true
+          tieArray.push(newCard1, newCard2)
+          console.log('another tie')
+        }
+      }
+    }
 
   render(){
-    // console.log(this.state.gameOver)
+
     return (
       <div>
-        <button onClick={this.handleGame}>Play</button>
+        <button onClick={() => this.playGame()}>Play</button>
         <div>
-          gameOver: {`${this.state.gameOver}`}
+          {
+            this.gameOver ? (
+              <div>
+                GAMEOVER
+                <br />
+                WINNER: {this.state.winner}
+              </div>
+            ) : (
+              <div>
+                click play above to start game
+              </div>
+            )
+          }
         </div>
       </div>
     )

@@ -15,6 +15,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -49,12 +61,14 @@ var Game = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      player1Hand: [],
-      player2Hand: [],
-      gameOver: true
-    }; // this.playWar = this.playWar.bind(this);
-
-    _this.handleGame = _this.handleGame.bind(_assertThisInitialized(_this));
+      winner: ''
+    };
+    _this.gameOver = false;
+    _this.winnerId = null;
+    _this.player1Hand = [];
+    _this.player2Hand = [];
+    _this.playGame = _this.playGame.bind(_assertThisInitialized(_this));
+    _this.playWar = _this.playWar.bind(_assertThisInitialized(_this));
     return _this;
   } // fetch the shuffled deck from BE and split it btw two players
 
@@ -67,64 +81,131 @@ var Game = /*#__PURE__*/function (_React$Component) {
       fetch('api/game/new').then(function (res) {
         return res.json();
       }).then(function (deck) {
-        _this2.setState({
-          player1Hand: deck.slice(0, 26),
-          player2Hand: deck.slice(26)
-        });
+        _this2.player1Hand = deck.slice(0, 26);
+        _this2.player2Hand = deck.slice(26);
       });
     }
   }, {
-    key: "handleGame",
-    value: function handleGame(e) {
-      this.setState({
-        gameOver: false
-      });
-    } // playWar(){
-    //   let card1;
-    //   let card2;
-    //   while (this.state.player1Hand.length && 
-    //     this.state.player2Hand.length){
-    //     card1 = this.state.player1Hand.shift()[0]
-    //     card2 = this.state.player2Hand.shift()[0]
-    //     if (card1 < card2){
-    //       const stateCopy = this.state.player2Hand
-    //       stateCopy.push(card1, card2)
-    //       this.setState({
-    //         player2Hand: stateCopy
-    //       })
-    //     } else if (card2 < card1){
-    //       const stateCopy = this.state.player1Hand
-    //       stateCopy.push(card1, card2)
-    //       this.setState({
-    //         player1Hand: stateCopy
-    //       })
-    //     } else {
-    //       // this.tieCardValue()
-    //     }
-    //   }
-    //   if (card1 && card2){
-    //     return (
-    //       <div>
-    //         <div>
-    //           {card1}
-    //         </div>
-    //         <div>
-    //           {card2}
-    //         </div>
-    //       </div>
-    //     )
-    //   } else {
-    //     return null
-    //   }
-    // }
+    key: "playGame",
+    value: function playGame() {
+      //debugger
+      while (!this.gameOver) {
+        //debugger
+        var card1 = this.player1Hand.shift();
+        var card2 = this.player2Hand.shift(); //debugger
 
+        if (card1[0] < card2[0]) {
+          //debugger
+          this.player2Hand.push(card1, card2);
+
+          if (!this.player1Hand.length) {
+            this.setState({
+              winner: 'Player 2'
+            });
+            this.winnerId = 2;
+            this.gameOver = true;
+          }
+        } else if (card2[0] < card1[0]) {
+          //debugger
+          this.player1Hand.push(card1, card2);
+
+          if (!this.player2Hand.length) {
+            this.setState({
+              winner: 'Player 1'
+            });
+            this.winnerId = 1;
+            this.gameOver = true;
+          }
+        } else {
+          //debugger
+          this.playWar(card1, card2);
+        }
+      } // gameOver is true, now updating BE with new winner
+      // debugger
+
+
+      fetch("/api/players/".concat(this.winnerId), {
+        method: 'PATCH'
+      });
+    }
+  }, {
+    key: "playWar",
+    value: function playWar(card1, card2) {
+      var tieCardValue = true;
+      var tieArray = [card1, card2];
+
+      while (tieCardValue) {
+        tieCardValue = false; //debugger
+
+        if (this.player1Hand.length < 4) {
+          this.setState({
+            winner: 'Player 2'
+          });
+          this.winnerId = 2;
+          this.gameOver = true;
+          return;
+        }
+
+        if (this.player2Hand.length < 4) {
+          this.setState({
+            winner: 'Player 1'
+          });
+          this.winnerId = 1;
+          this.gameOver = true;
+          return;
+        } //debugger
+
+
+        for (var i = 0; i < 3; i++) {
+          tieArray.push(this.player1Hand.shift(), this.player2Hand.shift());
+        } //debugger
+
+
+        var newCard1 = this.player1Hand.shift();
+        var newCard2 = this.player2Hand.shift(); //debugger
+
+        if (newCard1[0] < newCard2[0]) {
+          this.player2Hand = [].concat(_toConsumableArray(this.player2Hand), tieArray, [newCard1, newCard2]); //debugger
+
+          if (!this.player1Hand.length) {
+            this.setState({
+              winner: 'Player 2'
+            });
+            this.winnerId = 2;
+            this.gameOver = true;
+          }
+
+          return;
+        } else if (newCard2[0] < newCard1[0]) {
+          this.player1Hand = [].concat(_toConsumableArray(this.player1Hand), tieArray, [newCard1, newCard2]); //debugger
+
+          if (!this.player2Hand.length) {
+            this.setState({
+              winner: 'Player 1'
+            });
+            this.winnerId = 1;
+            this.gameOver = true;
+          }
+
+          return;
+        } else {
+          //debugger
+          tieCardValue = true;
+          tieArray.push(newCard1, newCard2);
+          console.log('another tie');
+        }
+      }
+    }
   }, {
     key: "render",
     value: function render() {
-      // console.log(this.state.gameOver)
+      var _this3 = this;
+
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        onClick: this.handleGame
-      }, "Play"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "gameOver: ", "".concat(this.state.gameOver)));
+        onClick: function onClick() {
+          return _this3.playGame();
+        }
+      }, "Play"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.gameOver ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "GAMEOVER", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "WINNER: ", this.state.winner) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "click play above to start game")));
     }
   }]);
 
