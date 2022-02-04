@@ -1,14 +1,24 @@
 import React from "react";
 
-const PlayerItem = ({ player }) => (
-  <div className="player-item-conatiner">
-    <div>
-      {player.name}:
-    </div>
-    <div>
-      {player.lifetime_wins}
-    </div>
-  </div>
-);
+class PlayerItem extends React.Component{
+  constructor(props){
+    super(props)
+
+  }
+
+  render(){ 
+    const { player } = this.props
+
+    return (
+      <div className="player-item-conatiner">
+        <div>
+          {`${player.name}: ${player.lifetime_wins}`}
+        </div>
+      </div>
+    )
+  }
+
+}
+
 
 export default PlayerItem;

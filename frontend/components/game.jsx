@@ -1,4 +1,5 @@
 import React from "react";
+import LifeTimeWins from './lifetime_wins';
 
 class Game extends React.Component{
   constructor(props){
@@ -12,6 +13,7 @@ class Game extends React.Component{
     this.winnerId = null;
     this.player1Hand = [];
     this.player2Hand = [];
+    this.currentGame = 1
 
     this.playGame = this.playGame.bind(this);
     this.playWar = this.playWar.bind(this);
@@ -26,6 +28,8 @@ class Game extends React.Component{
         this.player2Hand = deck.slice(26)
       }) 
   }
+
+
 
   playGame(){
     //debugger
@@ -43,6 +47,7 @@ class Game extends React.Component{
           })
           this.winnerId = 2
           this.gameOver = true
+          this.currentGame += 1
         }
       } else if (card2[0] < card1[0]){
         //debugger
@@ -53,6 +58,7 @@ class Game extends React.Component{
           })
           this.winnerId = 1
           this.gameOver = true
+          this.currentGame += 1
         }
       } else {
         //debugger
@@ -81,6 +87,7 @@ class Game extends React.Component{
           })
           this.winnerId = 2 
           this.gameOver = true
+          this.currentGame += 1
           return
         } 
         if (this.player2Hand.length < 4){
@@ -89,6 +96,7 @@ class Game extends React.Component{
           })
           this.winnerId = 1 
           this.gameOver = true
+          this.currentGame += 1
           return
         }
 
@@ -112,6 +120,7 @@ class Game extends React.Component{
             })
             this.winnerId = 2
             this.gameOver = true
+            this.currentGame += 1
           }
           return 
         } else if (newCard2[0] < newCard1[0]){
@@ -123,13 +132,14 @@ class Game extends React.Component{
             })
             this.winnerId = 1
             this.gameOver = true
+            this.currentGame += 1
           }
           return
         } else {
           //debugger
           tieCardValue = true
           tieArray.push(newCard1, newCard2)
-          console.log('another tie')
+          // console.log('another tie')
         }
       }
     }
@@ -137,9 +147,9 @@ class Game extends React.Component{
   render(){
 
     return (
-      <div>
+      <div className="game-container">
         <button onClick={() => this.playGame()}>Play</button>
-        <div>
+        <div className="game-over-container">
           {
             this.gameOver ? (
               <div>
@@ -154,6 +164,7 @@ class Game extends React.Component{
             )
           }
         </div>
+          <LifeTimeWins currentGame={this.currentGame}/>
       </div>
     )
   }

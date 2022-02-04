@@ -14,12 +14,27 @@ class LifeTimeWins extends React.Component{
     fetch('/api/players')
       .then(res => res.json())
       .then(players => {
-        this.setState({ players })
+        this.setState({ 
+          players 
+        })
       })
   }
 
-  render(){
+  componentDidUpdate(prevProps){
+    debugger
+    if(prevProps.currentGame !== this.props.currentGame){
+      fetch('/api/players')
+        .then(res => res.json())
+        .then(players => {
+          this.setState({ 
+            players
+          })
+        })
+    }
+  }
 
+  render(){
+    debugger
     let players = Object.values(this.state.players)
 
     return (
@@ -28,10 +43,12 @@ class LifeTimeWins extends React.Component{
           LIFETIME WINS
         </div>
         <div>
+          {/* {this.state.player1?.lifetime_wins}
+          {this.state.player2?.lifetime_wins} */}
           {
             players.map(player => <PlayerItem 
                                     key={player.id}
-                                    player={player}
+                                    player={this.state.players[player.id]}
                                   />
               
                         )
