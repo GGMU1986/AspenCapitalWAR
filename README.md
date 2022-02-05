@@ -1,24 +1,50 @@
-# README
+# War Card Game
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Introduction
 
-Things you may want to cover:
+Welcome to my solution to the Aspen Capital take home challenge. The game is live on Heroku.
 
-* Ruby version
+[AC War Game.](https://ac-war-game-gt.herokuapp.com/)
+Use the link to the left to navigate to the site, then click the PLAY button to start the game. 
 
-* System dependencies
+## Technologies Used
 
-* Configuration
+  - ### Backend
+    - Ruby on Rails
+    - PostgreSQL
+    
+  - ### Frontend
+    - React
+    - CSS
 
-* Database creation
+## Follow below steps to view develoment mode of the game
 
-* Database initialization
+  - clone the repo
+  - cd into the project directory
+  - Run below in terminal to install ruby gems
+    
+    `bundle install`
+  - Run below in terminal to install node modules
+    
+    `npm install`
+  - Run below in terminal to set up database
 
-* How to run the test suite
+    `bundle exec rails db:setup`
+    
+  - Run below in terminal to start the rails server
 
-* Services (job queues, cache servers, search engines, etc.)
+    `rails s`
+    
+  - Run below in terminal for JavaScript bundler and compiler
 
-* Deployment instructions
+    `npm run webpack`
+    
+  - visit localhost:3000 in your browser
 
-* ...
+## Additional things to achieve if given more time
+
+  - Improve the styling on the frontend
+  - Better UI
+  - Add official testing instead of using console.log and debugger 
+
+  
