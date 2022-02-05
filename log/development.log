@@ -12014,3 +12014,95 @@ Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms)
 Completed 200 OK in 12ms (Views: 11.7ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/" for ::1 at 2022-02-04 21:23:12 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 259ms (Views: 257.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-04 21:23:12 -0500
+Started GET "/api/game/new" for ::1 at 2022-02-04 21:23:12 -0500
+Processing by Api::PlayersController#index as JSON
+Processing by Api::GameController#new as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.6ms)
+  Rendering api/players/index.json.jbuilder
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mPlayer Load (1.1ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (2.7ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2022-02-04 21:23:49 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 22.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-04 21:23:49 -0500
+Started GET "/api/game/new" for ::1 at 2022-02-04 21:23:49 -0500
+Processing by Api::PlayersController#index as JSON
+Processing by Api::GameController#new as JSON
+  Rendering api/players/index.json.jbuilder
+  Rendering api/game/cards.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.4ms)
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mPlayer Load (0.6ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.9ms)
+Completed 200 OK in 14ms (Views: 13.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2022-02-04 21:23:51 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-04 21:23:51 -0500
+Started GET "/api/game/new" for ::1 at 2022-02-04 21:23:51 -0500
+Processing by Api::GameController#new as JSON
+Processing by Api::PlayersController#index as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendering api/players/index.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.5ms)
+Completed 200 OK in 13ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.3ms)
+Completed 200 OK in 12ms (Views: 11.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for ::1 at 2022-02-04 21:24:20 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 30ms (Views: 27.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/players" for ::1 at 2022-02-04 21:24:20 -0500
+Started GET "/api/game/new" for ::1 at 2022-02-04 21:24:20 -0500
+Processing by Api::GameController#new as JSON
+Processing by Api::PlayersController#index as JSON
+  Rendering api/game/cards.json.jbuilder
+  Rendering api/players/index.json.jbuilder
+  Rendered api/game/cards.json.jbuilder (0.6ms)
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mPlayer Load (0.5ms)[0m  [1m[34mSELECT "players".* FROM "players"[0m
+  ↳ app/views/api/players/index.json.jbuilder:1
+  Rendered api/players/index.json.jbuilder (1.6ms)
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.5ms)
+
+
