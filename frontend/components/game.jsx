@@ -139,7 +139,7 @@ class Game extends React.Component{
           //debugger
           tieCardValue = true
           tieArray.push(newCard1, newCard2)
-          // console.log('another tie')
+
         }
       }
     }

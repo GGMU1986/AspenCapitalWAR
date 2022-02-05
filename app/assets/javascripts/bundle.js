@@ -200,7 +200,7 @@ var Game = /*#__PURE__*/function (_React$Component) {
         } else {
           //debugger
           tieCardValue = true;
-          tieArray.push(newCard1, newCard2); // console.log('another tie')
+          tieArray.push(newCard1, newCard2);
         }
       }
     }
