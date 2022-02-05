@@ -46,5 +46,7 @@ Use the link to the left to navigate to the site, then click the PLAY button to 
   - Improve the styling on the frontend
   - Better UI
   - Add official testing instead of using console.log and debugger 
+  -  Fix the bug related to React. After the game ends the winning player's lifetime wins should be updated in real time. This does not happen, it updates after refreshing the page.
+
 
   
