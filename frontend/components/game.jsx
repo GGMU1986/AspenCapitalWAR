@@ -32,14 +32,14 @@ class Game extends React.Component{
 
 
   playGame(){
-    //debugger
+
+    // main game loop
     while(!this.gameOver){
-      //debugger
+
       const card1 = this.player1Hand.shift();
       const card2 = this.player2Hand.shift();
-      //debugger
+      
       if (card1[0] < card2[0]){
-        //debugger
         this.player2Hand.push(card1, card2)
         if (!this.player1Hand.length) {
           this.setState({ 
@@ -50,7 +50,6 @@ class Game extends React.Component{
           this.currentGame += 1
         }
       } else if (card2[0] < card1[0]){
-        //debugger
         this.player1Hand.push(card1, card2)
         if (!this.player2Hand.length) {
           this.setState({ 
@@ -61,13 +60,12 @@ class Game extends React.Component{
           this.currentGame += 1
         }
       } else {
-        //debugger
+        // function to deal with War scenario
         this.playWar(card1, card2)
       }
     }
 
     // gameOver is true, now updating BE with new winner
-    // debugger
     fetch(`/api/players/${this.winnerId}`, {
       method: 'PATCH'
     })
@@ -80,7 +78,7 @@ class Game extends React.Component{
 
     while(tieCardValue){
       tieCardValue = false
-        //debugger
+        
         if(this.player1Hand.length < 4){
           this.setState({ 
             winner: 'Player 2',
@@ -100,20 +98,20 @@ class Game extends React.Component{
           return
         }
 
-        //debugger
+        
         for(let i = 0; i < 3; i++){
           tieArray.push(
             this.player1Hand.shift(),
             this.player2Hand.shift()
           )
         }
-        //debugger
+        
         let newCard1 = this.player1Hand.shift();
         let newCard2 = this.player2Hand.shift();
-        //debugger
+        
         if (newCard1[0] < newCard2[0]){
           this.player2Hand = [...this.player2Hand, ...tieArray, newCard1, newCard2]
-          //debugger
+          
           if (!this.player1Hand.length) {
             this.setState({ 
               winner: 'Player 2'
@@ -125,7 +123,7 @@ class Game extends React.Component{
           return 
         } else if (newCard2[0] < newCard1[0]){
           this.player1Hand = [ ...this.player1Hand, ...tieArray, newCard1, newCard2]
-          //debugger
+          
           if (!this.player2Hand.length) {
             this.setState({ 
               winner: 'Player 1',
@@ -136,7 +134,7 @@ class Game extends React.Component{
           }
           return
         } else {
-          //debugger
+          
           tieCardValue = true
           tieArray.push(newCard1, newCard2)
 

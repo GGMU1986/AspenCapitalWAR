@@ -91,14 +91,12 @@ var Game = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "playGame",
     value: function playGame() {
-      //debugger
+      // main game loop
       while (!this.gameOver) {
-        //debugger
         var card1 = this.player1Hand.shift();
-        var card2 = this.player2Hand.shift(); //debugger
+        var card2 = this.player2Hand.shift();
 
         if (card1[0] < card2[0]) {
-          //debugger
           this.player2Hand.push(card1, card2);
 
           if (!this.player1Hand.length) {
@@ -110,7 +108,6 @@ var Game = /*#__PURE__*/function (_React$Component) {
             this.currentGame += 1;
           }
         } else if (card2[0] < card1[0]) {
-          //debugger
           this.player1Hand.push(card1, card2);
 
           if (!this.player2Hand.length) {
@@ -122,11 +119,10 @@ var Game = /*#__PURE__*/function (_React$Component) {
             this.currentGame += 1;
           }
         } else {
-          //debugger
+          // function to deal with War scenario
           this.playWar(card1, card2);
         }
       } // gameOver is true, now updating BE with new winner
-      // debugger
 
 
       fetch("/api/players/".concat(this.winnerId), {
@@ -140,7 +136,7 @@ var Game = /*#__PURE__*/function (_React$Component) {
       var tieArray = [card1, card2];
 
       while (tieCardValue) {
-        tieCardValue = false; //debugger
+        tieCardValue = false;
 
         if (this.player1Hand.length < 4) {
           this.setState({
@@ -160,19 +156,17 @@ var Game = /*#__PURE__*/function (_React$Component) {
           this.gameOver = true;
           this.currentGame += 1;
           return;
-        } //debugger
-
+        }
 
         for (var i = 0; i < 3; i++) {
           tieArray.push(this.player1Hand.shift(), this.player2Hand.shift());
-        } //debugger
-
+        }
 
         var newCard1 = this.player1Hand.shift();
-        var newCard2 = this.player2Hand.shift(); //debugger
+        var newCard2 = this.player2Hand.shift();
 
         if (newCard1[0] < newCard2[0]) {
-          this.player2Hand = [].concat(_toConsumableArray(this.player2Hand), tieArray, [newCard1, newCard2]); //debugger
+          this.player2Hand = [].concat(_toConsumableArray(this.player2Hand), tieArray, [newCard1, newCard2]);
 
           if (!this.player1Hand.length) {
             this.setState({
@@ -185,7 +179,7 @@ var Game = /*#__PURE__*/function (_React$Component) {
 
           return;
         } else if (newCard2[0] < newCard1[0]) {
-          this.player1Hand = [].concat(_toConsumableArray(this.player1Hand), tieArray, [newCard1, newCard2]); //debugger
+          this.player1Hand = [].concat(_toConsumableArray(this.player1Hand), tieArray, [newCard1, newCard2]);
 
           if (!this.player2Hand.length) {
             this.setState({
@@ -198,7 +192,6 @@ var Game = /*#__PURE__*/function (_React$Component) {
 
           return;
         } else {
-          //debugger
           tieCardValue = true;
           tieArray.push(newCard1, newCard2);
         }
