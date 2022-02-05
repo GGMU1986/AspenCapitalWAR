@@ -11,7 +11,7 @@ class PlayerItem extends React.Component{
 
     return (
       <div className="player-item-conatiner">
-        <div>
+        <div className="player-item">
           {`${player.name}: ${player.lifetime_wins}`}
         </div>
       </div>

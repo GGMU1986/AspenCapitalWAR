@@ -211,15 +211,25 @@ var Game = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "game-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "welcome"
+      }, "Welcome to the War Card Game!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: function onClick() {
           return _this3.playGame();
         }
       }, "Play"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "game-over-container"
-      }, this.gameOver ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "GAMEOVER", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("br", null), "WINNER: ", this.state.winner) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "click play above to start game")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_lifetime_wins__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }, this.gameOver ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "game-over"
+      }, "GAMEOVER"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "winner"
+      }, "WINNER: ", this.state.winner)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "click"
+      }, "click play above to start game")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_lifetime_wins__WEBPACK_IMPORTED_MODULE_1__["default"], {
         currentGame: this.currentGame
-      }));
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "created"
+      }, "Created by George Tsimis with Ruby on Rails, PostgreSQL, React, and CSS"));
     }
   }]);
 
@@ -323,7 +333,11 @@ var LifeTimeWins = /*#__PURE__*/function (_React$Component) {
       var players = Object.values(this.state.players);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "lifetime-wins-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "LIFETIME WINS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, players.map(function (player) {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "lifetime-title"
+      }, "LIFETIME WINS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "player-item-container"
+      }, players.map(function (player) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_player_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
           key: player.id,
           player: _this4.state.players[player.id]
@@ -391,7 +405,9 @@ var PlayerItem = /*#__PURE__*/function (_React$Component) {
       var player = this.props.player;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "player-item-conatiner"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, "".concat(player.name, ": ").concat(player.lifetime_wins)));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "player-item"
+      }, "".concat(player.name, ": ").concat(player.lifetime_wins)));
     }
   }]);
 
@@ -418,7 +434,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Root = function Root() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_game__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "root"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_game__WEBPACK_IMPORTED_MODULE_1__["default"], null));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Root);

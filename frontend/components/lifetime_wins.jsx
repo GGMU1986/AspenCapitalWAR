@@ -39,10 +39,10 @@ class LifeTimeWins extends React.Component{
 
     return (
       <div className="lifetime-wins-container">
-        <div>
+        <div className="lifetime-title">
           LIFETIME WINS
         </div>
-        <div>
+        <div className="player-item-container">
           {/* {this.state.player1?.lifetime_wins}
           {this.state.player2?.lifetime_wins} */}
           {

@@ -148,23 +148,32 @@ class Game extends React.Component{
 
     return (
       <div className="game-container">
+        <div className="welcome">
+          Welcome to the War Card Game!
+        </div>
         <button onClick={() => this.playGame()}>Play</button>
         <div className="game-over-container">
           {
             this.gameOver ? (
               <div>
-                GAMEOVER
-                <br />
-                WINNER: {this.state.winner}
+                <div className="game-over">
+                  GAMEOVER
+                </div>
+                <div className="winner">
+                  WINNER: {this.state.winner}
+                </div>
               </div>
             ) : (
-              <div>
+              <div className="click">
                 click play above to start game
               </div>
             )
           }
         </div>
           <LifeTimeWins currentGame={this.currentGame}/>
+          <div className="created">
+            Created by George Tsimis with Ruby on Rails, PostgreSQL, React, and CSS
+          </div>
       </div>
     )
   }

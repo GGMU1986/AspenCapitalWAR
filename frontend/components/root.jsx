@@ -2,7 +2,7 @@ import React from 'react';
 import Game from './game';
 
 const Root = () => (
-  <div>
+  <div className="root">
     <Game />
   </div>
 );
