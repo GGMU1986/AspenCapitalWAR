@@ -35,7 +35,7 @@ Use the link to the left to navigate to the site, then click the PLAY button to 
 
     `rails s`
     
-  - Run below in terminal for JavaScript bundler and compiler
+  - Run below in another terminal for JavaScript bundler and compiler
 
     `npm run webpack`
     
