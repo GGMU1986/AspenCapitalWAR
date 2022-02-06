@@ -251,9 +251,13 @@ var Game = /*#__PURE__*/function (_React$Component) {
         className: "player-item-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "player-item"
-      }, "Player 1: ", this.state.lifeTimeWins1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Player 1: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        className: "LTW"
+      }, this.state.lifeTimeWins1)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "player-item"
-      }, "Player 2: ", this.state.lifeTimeWins2)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "Player 2: ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        className: "LTW"
+      }, this.state.lifeTimeWins2))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "created"
       }, "Created by George Tsimis with Ruby on Rails, PostgreSQL, React, and CSS"));
     }

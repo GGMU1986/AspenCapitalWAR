@@ -199,10 +199,10 @@ class Game extends React.Component{
                 </div>
                 <div className="player-item-container">
                   <div className="player-item">
-                    Player 1: {this.state.lifeTimeWins1}
+                    Player 1: <span className="LTW">{this.state.lifeTimeWins1}</span>
                   </div>
                   <div className="player-item">
-                    Player 2: {this.state.lifeTimeWins2}
+                    Player 2: <span className="LTW">{this.state.lifeTimeWins2}</span>
                   </div>
                 </div>
               </div>
