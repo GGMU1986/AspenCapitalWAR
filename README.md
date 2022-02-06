@@ -43,10 +43,11 @@ Use the link to the left to navigate to the site, then click the PLAY button to 
 
 ## Additional things to achieve if given more time
 
-  - Improve the styling on the frontend
+  - Improve the styling on the frontend, associated with card playing games
+  - Add functionality to watch full game play out, along with seeing winner instantly
   - Better UI
   - Add official testing instead of using console.log and debugger 
-  -  Fix the bug related to React. After the game ends the winning player's lifetime wins should be updated in real time. This does not happen, it updates after refreshing the page.
+  
 
 
   
