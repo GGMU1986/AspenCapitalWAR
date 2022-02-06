@@ -17,7 +17,7 @@ Use the link to the left to navigate to the site, then click the PLAY button to 
     - React
     - CSS
 
-## Follow below steps to view develoment mode of the game
+## Follow below steps to view development mode of the game
 
   - clone the repo
   - cd into the project directory
