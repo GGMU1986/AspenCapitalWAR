@@ -46,7 +46,8 @@ Use the link to the left to navigate to the site, then click the PLAY button to 
   - Improve the styling on the frontend, associated with card playing games
   - Add functionality to watch full game play out, along with seeing winner instantly
   - Better UI
-  - Add official testing instead of using console.log and debugger 
+  - Add official testing instead of using console.log and debugger
+  - DRY up my code 
   
 
 
