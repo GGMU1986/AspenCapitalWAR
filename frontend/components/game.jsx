@@ -1,5 +1,4 @@
 import React from "react";
-// import LifeTimeWins from './lifetime_wins';
 
 class Game extends React.Component{
   constructor(props){
@@ -23,8 +22,9 @@ class Game extends React.Component{
     this.updateLifeTimeWins = this.updateLifeTimeWins.bind(this);
   }
    
-  // fetch the shuffled deck from BE and split it btw two players
   componentDidMount(){
+
+    // fetch the shuffled deck from BE and split it btw two players
     fetch('api/game/new')
       .then(res => res.json())
       .then(deck => {
@@ -32,6 +32,7 @@ class Game extends React.Component{
         this.player2Hand = deck.slice(26)
       }) 
 
+    // fetch player info from BE
     fetch('/api/players')
       .then(res => res.json())
       .then(players => {
@@ -39,8 +40,7 @@ class Game extends React.Component{
           lifeTimeWins1: players['1'].lifetime_wins, 
           lifeTimeWins2: players['2'].lifetime_wins 
         })
-        this.players = players
-        
+        this.players = players 
       })
   }
 
@@ -69,7 +69,6 @@ class Game extends React.Component{
           })
           this.winnerId = 2
           this.gameOver = true
-          this.currentGame += 1
         }
       } else if (card2[0] < card1[0]){
         this.player1Hand.push(card1, card2)
@@ -79,9 +78,9 @@ class Game extends React.Component{
           })
           this.winnerId = 1
           this.gameOver = true
-          this.currentGame += 1
         }
       } else {
+
         // function to deal with War scenario
         this.playWar(card1, card2)
       }
@@ -108,7 +107,6 @@ class Game extends React.Component{
           })
           this.winnerId = 2 
           this.gameOver = true
-          this.currentGame += 1
           return
         } 
         if (this.player2Hand.length < 4){
@@ -117,11 +115,9 @@ class Game extends React.Component{
           })
           this.winnerId = 1 
           this.gameOver = true
-          this.currentGame += 1
           return
         }
 
-        
         for(let i = 0; i < 3; i++){
           tieArray.push(
             this.player1Hand.shift(),
@@ -141,7 +137,7 @@ class Game extends React.Component{
             })
             this.winnerId = 2
             this.gameOver = true
-            this.currentGame += 1
+
           }
           return 
         } else if (newCard2[0] < newCard1[0]){
@@ -153,14 +149,12 @@ class Game extends React.Component{
             })
             this.winnerId = 1
             this.gameOver = true
-            this.currentGame += 1
+
           }
           return
         } else {
-          
           tieCardValue = true
           tieArray.push(newCard1, newCard2)
-
         }
       }
     }
