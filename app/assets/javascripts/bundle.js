@@ -305,8 +305,6 @@ var LifeTimeWins = /*#__PURE__*/function (_React$Component) {
     value: function componentDidUpdate(prevProps) {
       var _this3 = this;
 
-      debugger;
-
       if (prevProps.currentGame !== this.props.currentGame) {
         fetch('/api/players').then(function (res) {
           return res.json();
@@ -322,7 +320,6 @@ var LifeTimeWins = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this4 = this;
 
-      debugger;
       var players = Object.values(this.state.players);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "lifetime-wins-container"

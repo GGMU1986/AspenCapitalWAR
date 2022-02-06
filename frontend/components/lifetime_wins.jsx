@@ -21,7 +21,6 @@ class LifeTimeWins extends React.Component{
   }
 
   componentDidUpdate(prevProps){
-    debugger
     if(prevProps.currentGame !== this.props.currentGame){
       fetch('/api/players')
         .then(res => res.json())
@@ -34,7 +33,6 @@ class LifeTimeWins extends React.Component{
   }
 
   render(){
-    debugger
     let players = Object.values(this.state.players)
 
     return (
