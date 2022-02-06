@@ -1,22 +1,26 @@
 import React from "react";
-import LifeTimeWins from './lifetime_wins';
+// import LifeTimeWins from './lifetime_wins';
 
 class Game extends React.Component{
   constructor(props){
     super(props)
 
     this.state = {
-      winner: ''
+      winner: '',
+      lifeTimeWins1: null,
+      lifeTimeWins2: null,
     }
     
     this.gameOver = false;
     this.winnerId = null;
     this.player1Hand = [];
     this.player2Hand = [];
-    this.currentGame = 1
+    this.players = {};
+
 
     this.playGame = this.playGame.bind(this);
     this.playWar = this.playWar.bind(this);
+    this.updateLifeTimeWins = this.updateLifeTimeWins.bind(this);
   }
    
   // fetch the shuffled deck from BE and split it btw two players
@@ -27,8 +31,26 @@ class Game extends React.Component{
         this.player1Hand = deck.slice(0,26)
         this.player2Hand = deck.slice(26)
       }) 
+
+    fetch('/api/players')
+      .then(res => res.json())
+      .then(players => {
+        this.setState({ 
+          lifeTimeWins1: players['1'].lifetime_wins, 
+          lifeTimeWins2: players['2'].lifetime_wins 
+        })
+        this.players = players
+        
+      })
   }
 
+  updateLifeTimeWins(){
+    if (this.winnerId === 1){
+      this.setState({ lifeTimeWins1: this.state.lifeTimeWins1 + 1 })
+    } else if (this.winnerId === 2){
+      this.setState({ lifeTimeWins2: this.state.lifeTimeWins2 + 1 })
+    }
+  }
 
 
   playGame(){
@@ -69,6 +91,7 @@ class Game extends React.Component{
     fetch(`/api/players/${this.winnerId}`, {
       method: 'PATCH'
     })
+    this.updateLifeTimeWins();
   }
     
   playWar(card1, card2){
@@ -168,7 +191,23 @@ class Game extends React.Component{
             )
           }
         </div>
-          <LifeTimeWins currentGame={this.currentGame}/>
+          <div>
+            {
+              <div className="lifetime-wins-container">
+                <div className="lifetime-title">
+                  LIFETIME WINS
+                </div>
+                <div className="player-item-container">
+                  <div className="player-item">
+                    Player 1: {this.state.lifeTimeWins1}
+                  </div>
+                  <div className="player-item">
+                    Player 2: {this.state.lifeTimeWins2}
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
           <div className="created">
             Created by George Tsimis with Ruby on Rails, PostgreSQL, React, and CSS
           </div>

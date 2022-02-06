@@ -13,7 +13,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _lifetime_wins__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./lifetime_wins */ "./frontend/components/lifetime_wins.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -48,8 +47,7 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-
-
+ // import LifeTimeWins from './lifetime_wins';
 
 var Game = /*#__PURE__*/function (_React$Component) {
   _inherits(Game, _React$Component);
@@ -63,15 +61,18 @@ var Game = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      winner: ''
+      winner: '',
+      lifeTimeWins1: null,
+      lifeTimeWins2: null
     };
     _this.gameOver = false;
     _this.winnerId = null;
     _this.player1Hand = [];
     _this.player2Hand = [];
-    _this.currentGame = 1;
+    _this.players = {};
     _this.playGame = _this.playGame.bind(_assertThisInitialized(_this));
     _this.playWar = _this.playWar.bind(_assertThisInitialized(_this));
+    _this.updateLifeTimeWins = _this.updateLifeTimeWins.bind(_assertThisInitialized(_this));
     return _this;
   } // fetch the shuffled deck from BE and split it btw two players
 
@@ -87,6 +88,29 @@ var Game = /*#__PURE__*/function (_React$Component) {
         _this2.player1Hand = deck.slice(0, 26);
         _this2.player2Hand = deck.slice(26);
       });
+      fetch('/api/players').then(function (res) {
+        return res.json();
+      }).then(function (players) {
+        _this2.setState({
+          lifeTimeWins1: players['1'].lifetime_wins,
+          lifeTimeWins2: players['2'].lifetime_wins
+        });
+
+        _this2.players = players;
+      });
+    }
+  }, {
+    key: "updateLifeTimeWins",
+    value: function updateLifeTimeWins() {
+      if (this.winnerId === 1) {
+        this.setState({
+          lifeTimeWins1: this.state.lifeTimeWins1 + 1
+        });
+      } else if (this.winnerId === 2) {
+        this.setState({
+          lifeTimeWins2: this.state.lifeTimeWins2 + 1
+        });
+      }
     }
   }, {
     key: "playGame",
@@ -128,6 +152,7 @@ var Game = /*#__PURE__*/function (_React$Component) {
       fetch("/api/players/".concat(this.winnerId), {
         method: 'PATCH'
       });
+      this.updateLifeTimeWins();
     }
   }, {
     key: "playWar",
@@ -218,9 +243,17 @@ var Game = /*#__PURE__*/function (_React$Component) {
         className: "winner"
       }, "WINNER: ", this.state.winner)) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "click"
-      }, "click play above to start game")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_lifetime_wins__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        currentGame: this.currentGame
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }, "click play above to start game")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "lifetime-wins-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "lifetime-title"
+      }, "LIFETIME WINS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "player-item-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "player-item"
+      }, "Player 1: ", this.state.lifeTimeWins1), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "player-item"
+      }, "Player 2: ", this.state.lifeTimeWins2)))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "created"
       }, "Created by George Tsimis with Ruby on Rails, PostgreSQL, React, and CSS"));
     }
@@ -230,181 +263,6 @@ var Game = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Game);
-
-/***/ }),
-
-/***/ "./frontend/components/lifetime_wins.jsx":
-/*!***********************************************!*\
-  !*** ./frontend/components/lifetime_wins.jsx ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _player_item__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./player_item */ "./frontend/components/player_item.jsx");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-
-var LifeTimeWins = /*#__PURE__*/function (_React$Component) {
-  _inherits(LifeTimeWins, _React$Component);
-
-  var _super = _createSuper(LifeTimeWins);
-
-  function LifeTimeWins(props) {
-    var _this;
-
-    _classCallCheck(this, LifeTimeWins);
-
-    _this = _super.call(this, props);
-    _this.state = {
-      players: {}
-    };
-    return _this;
-  }
-
-  _createClass(LifeTimeWins, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      fetch('/api/players').then(function (res) {
-        return res.json();
-      }).then(function (players) {
-        _this2.setState({
-          players: players
-        });
-      });
-    }
-  }, {
-    key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps) {
-      var _this3 = this;
-
-      if (prevProps.currentGame !== this.props.currentGame) {
-        fetch('/api/players').then(function (res) {
-          return res.json();
-        }).then(function (players) {
-          _this3.setState({
-            players: players
-          });
-        });
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _this4 = this;
-
-      var players = Object.values(this.state.players);
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "lifetime-wins-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "lifetime-title"
-      }, "LIFETIME WINS"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "player-item-container"
-      }, players.map(function (player) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_player_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          key: player.id,
-          player: _this4.state.players[player.id]
-        });
-      })));
-    }
-  }]);
-
-  return LifeTimeWins;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LifeTimeWins);
-
-/***/ }),
-
-/***/ "./frontend/components/player_item.jsx":
-/*!*********************************************!*\
-  !*** ./frontend/components/player_item.jsx ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-
-
-var PlayerItem = /*#__PURE__*/function (_React$Component) {
-  _inherits(PlayerItem, _React$Component);
-
-  var _super = _createSuper(PlayerItem);
-
-  function PlayerItem(props) {
-    _classCallCheck(this, PlayerItem);
-
-    return _super.call(this, props);
-  }
-
-  _createClass(PlayerItem, [{
-    key: "render",
-    value: function render() {
-      var player = this.props.player;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "player-item-conatiner"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "player-item"
-      }, "".concat(player.name, ": ").concat(player.lifetime_wins)));
-    }
-  }]);
-
-  return PlayerItem;
-}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PlayerItem);
 
 /***/ }),
 
